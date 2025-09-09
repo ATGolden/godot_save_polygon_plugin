@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PolygonResource" load_steps=2 format=3 uid="uid://luef8hv62msl"]
+
+[ext_resource type="Script" path="res://addons/save_polygon_plugin/save_polygon_resource.gd" id="1_2jfll"]
+
+[resource]
+script = ExtResource("1_2jfll")
+polygon = PackedVector2Array(3, -39, 62, 6, 19, 75, -56, 30)

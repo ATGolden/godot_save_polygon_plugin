@@ -14,9 +14,8 @@ func _can_handle(object: Object) -> bool:
 func _parse_property(object: Object, type: Variant.Type, name: String, hint_type: PropertyHint, hint_string: String, usage_flags: int, wide: bool) -> bool:
 	
 	#Add plugin to each property that's named "polygon"
-	if object is CollisionPolygon2D:
-		if name == "polygon":
-			add_custom_control(save_polygon_property.new())
+	if name == "polygon":
+		add_custom_control(save_polygon_property.new())
 	
 	#Don't replace default property
 	return false

@@ -74,13 +74,14 @@ func _on_load_polygon_button_pressed():
 
 func _on_file_selected(path: String):
 	
-	
 	if file_dialogue.file_mode == EditorFileDialog.FILE_MODE_SAVE_FILE:
 		
 		var object = get_edited_object()
 		
 		var resource := PolygonResource.new()
-		resource.polygon = object.polygon
+		if object.polygon is PackedVector2Array:
+			#resource.polygon is PackedVector2Array, you can add other types if needed
+			resource.polygon = object.polygon
 		
 		ResourceSaver.save(resource, path)   # saves with chosen name
 		last_dir = path
@@ -92,7 +93,9 @@ func _on_file_selected(path: String):
 		var object = get_edited_object()
 		
 		var resource := load(path)
-		object.polygon = resource.polygon
+		if object.polygon is PackedVector2Array:
+			#resource.polygon is PackedVector2Array, you can add other types if needed
+			object.polygon = resource.polygon
 		
 		last_dir = path
 		
